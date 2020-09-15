@@ -35,3 +35,10 @@ button {
   border-radius: 5px;
   box-shadow: 2px 5px 5px #333;
 }
+
+button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  background: red;
+  border-radius: 11px;
+}

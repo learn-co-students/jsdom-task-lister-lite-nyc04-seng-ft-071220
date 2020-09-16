@@ -1,12 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const myTodos = document.getElementById("tasks");
-  const form = document.getElementById("create-task-form");
-  const newListItem = document.createElement('li'); 
-  form.addEventListener("click", function(event){
-    let taskDescription = document.getElementById("new-task-description").value;
-    newListItem.textContent = taskDescription
-    myTodos.appendChild(newListItem);
-    event.preventDefault()
-
+  const myTodos = document.querySelector("#tasks");
+  const form = document.querySelector("#create-task-form");
+   
+  form.addEventListener("submit", function(event){
+    event.preventDefault();
+    let formElement = event.target;
+    let input = formElement["new-task-description"];
+    let userInput = input.value;
+    
+    let button = document.createElement("BUTTON");
+    button.className = "buttons";
+    button.innerText = "X";
+    
+    let newListItem = document.createElement('li')
+    newListItem.className ="newListItemClass";
+    
+    newListItem.innerText = userInput;
+    myTodos.append(newListItem);
+    newListItem.append(button);
+    
+    
+    button.addEventListener("click", function(e){
+      newListItem.remove();
+    });
+    
+    
   });
 });
